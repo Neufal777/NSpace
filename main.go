@@ -1,3 +1,4 @@
+//MASTER
 package main
 
 import (
