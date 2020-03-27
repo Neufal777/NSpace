@@ -85,7 +85,6 @@ func registerUser(name string, surname string, username string, balance int) {
 
 func main() {
 
-	registerUser("hafda", "uasbd", "ia_34", 19)
 	u := user{}
 
 	log.Println("Connecting to SQL...")
