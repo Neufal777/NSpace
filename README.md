@@ -12,35 +12,18 @@ go get github.com/Neufal777/NSpace
 
 ```golang
 
-func main() {
-
+	//Introduce value in the database
 	registerUser("NAME", "SURNAME", "USERNAME", 0)
 
-	u := user{}
-
-	log.Println("Connecting to SQL...")
-
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
-		host, port, dbuser, password, dbname)
-
-	db, err := sql.Open("postgres", psqlInfo)
-
-	if err != nil {
-		panic(err)
-	}
-
-	defer db.Close()
-
-	fmt.Println("Successfully connected!")
-
-	rows, _ := db.Query("SELECT id, name, surname, nickname, balance FROM users")
-
-	for rows.Next() {
-		rows.Scan(&u.Id, &u.Name, &u.Surname, &u.Nickname, &u.balance)
-		log.Printf("|%v|%v|%v|%v|%v  ", u.Id, u.Name, u.Surname, u.Nickname, u.balance)
-	}
-
-}
+	//show results
+	showUsers()
 
 ```
 
+## Output
+
+```bash
+2020/03/28 10:09:05 |0|NAME|SURNAME|USERNAME|BALANCE  
+2020/03/28 10:09:05 |1|naoufal|dahouli|neufal79|324  
+2020/03/28 10:09:05 |3|Jorsh|Mclean|jmc89|12  
+```

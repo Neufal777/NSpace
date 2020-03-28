@@ -13,7 +13,7 @@ import (
 //const of DB connection information
 const (
 	host     = "HOST"
-	port     = 0000
+	port     = 8080
 	dbuser   = "DBUSER"
 	password = "PASS"
 	dbname   = "DBNAME"
@@ -73,10 +73,7 @@ func registerUser(name string, surname string, username string, balance int) {
 	log.Println("Registered succesfully")
 }
 
-func main() {
-
-	//Introduce value in the database
-	registerUser("NAME", "SURNAME", "USERNAME", 0)
+func showUsers() {
 
 	u := user{}
 
@@ -107,5 +104,13 @@ func main() {
 		rows.Scan(&u.Id, &u.Name, &u.Surname, &u.Nickname, &u.balance)
 		log.Printf("|%v|%v|%v|%v|%v  ", u.Id, u.Name, u.Surname, u.Nickname, u.balance)
 	}
+}
 
+func main() {
+
+	//Introduce value in the database
+	registerUser("NAME", "SURNAME", "USERNAME", 0)
+
+	//show results
+	showUsers()
 }
